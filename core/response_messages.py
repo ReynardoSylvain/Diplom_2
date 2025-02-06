@@ -1,0 +1,6 @@
+INGREDIENT_HASH_MISSING_MESSAGE = 'Ingredient ids must be provided'
+AUTH_REQUIRED_MESSAGE = 'You should be authorised'
+USER_EMAIL_CONFLICT_MESSAGE = 'User with such email already exists'
+LOGIN_FAILED_MESSAGE = 'email or password are incorrect'
+REQUIRED_USER_DATA_MISSING_MESSAGE = 'Email, password and name are required fields'
+EXISTING_USER_ACCOUNT_MESSAGE = 'User already exists'
