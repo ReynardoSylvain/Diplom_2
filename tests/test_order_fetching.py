@@ -4,6 +4,7 @@ import pytest
 from core.api_actions import ApiHandler
 from core.response_messages import AUTH_REQUIRED_MESSAGE
 from conftest import registered_user_account
+from core.api_helpers import create_multiple_orders
 
 
 @allure.feature('Получение информации о заказах')
@@ -12,8 +13,7 @@ class TestOrderRetrievalSet:
     @allure.description('Успешное получение списка заказов для авторизованного пользователя')
     def test_fetch_orders_authorized_user_success(self, registered_user_account):
         registered_user_account.sign_in()
-        for _ in range(2):
-            registered_user_account.place_order(ApiHandler().build_random_burger())
+        create_multiple_orders(registered_user_account, count=2)
 
         api_response = registered_user_account.fetch_user_orders()
         assert api_response.status_code == 200

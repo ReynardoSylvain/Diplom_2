@@ -44,3 +44,6 @@ class TestOrderSet:
         registered_user_account.sign_in()
         api_response = registered_user_account.place_order(bad_hash_order)
         assert api_response.status_code == 500
+
+        response_text = api_response.text
+        assert "Internal Server Error" in response_text, "Response text should contain 'Internal Server Error' for 500 error"
